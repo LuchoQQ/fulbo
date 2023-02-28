@@ -27,6 +27,11 @@ const userSchema = new mongoose.Schema(
             default: "user",
             required: true,
         },
+        location: {
+            type: String,
+            required: true,
+            trim: true,
+        }
     },
     {
         timestamps: true,
