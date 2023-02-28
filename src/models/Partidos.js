@@ -15,11 +15,11 @@ const partidoSchema = new mongoose.Schema({
         
     },
     equipo1: {
-        type: String,
+        type: mongoose.Schema.Types.ObjectId, ref: "Team",
         required: true,
     },
     equipo2: {
-        type: String,
+        type: mongoose.Schema.Types.ObjectId, ref: "Team",
         required: true,
     },
 

@@ -2,9 +2,8 @@ const mongoose = require("mongoose");
 
 const teamSchema = new mongoose.Schema({
     liderId: {
-        type: String,
+        type: mongoose.Schema.Types.ObjectId, ref: "User",
         required: true,
-        trim: true,
     },
     jugadoresId: {
         type: Array,
