@@ -1,12 +1,33 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '@/styles/Home.module.css'
+import { getSession } from "next-auth/react";
 
-
-export default function Home() {
-  return (
-    <>
-      
-    </>
-  )
+type Props = {
+    props: any
 }
+
+const Home: React.FC<Props> = (props) => {
+    return (
+        <>
+        
+        
+        </>
+    )
+}
+
+
+export async function getServerSideProps(context: any) {
+    const session = await getSession();
+
+    if (session === null) {
+        return {
+            redirect: {
+                destination: "/login",
+                permanent: false,
+            },
+        };
+    }
+    return {
+        props: { session }, // will be passed to the page component as props
+    };
+}
+
+export default Home
